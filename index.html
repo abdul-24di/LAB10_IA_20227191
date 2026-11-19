@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pecera de Nemo y Dory</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <h1>Pecera de Nemo y Dory</h1>
+  <p class="ayuda">Nemo (izquierda) recuerda su conteo siempre. Dory (derecha) lo olvida al cambiar de pestaña o recargar.
+    Arrastra cada burbuja hasta su pez.</p>
+
+  <div id="pecera">
+    <!-- Pregunta 1: aquí crearPecera(x) dibuja las celdas -->
+    <div id="tablero"></div>
+
+    <!-- Nemo -->
+    <div class="zona" id="zona-nemo" data-pez="nemo">
+      <img src="img/nemo_sin_fondo.png" alt="Nemo">
+      <span class="nombre">Nemo</span>
+      <span class="contador" id="cont-nemo">0</span>
+      <button type="button" id="btn-nemo">Nemo vio un pez</button>
+    </div>
+
+    <!-- Dory -->
+    <div class="zona" id="zona-dory" data-pez="dory">
+      <img src="img/dory_sin_fondo.png" alt="Dory">
+      <span class="nombre">Dory</span>
+      <span class="contador" id="cont-dory">0</span>
+      <button type="button" id="btn-dory">Dory vio un pez</button>
+    </div>
+
+    <!-- Pregunta 3: aquí nacen las burbujas -->
+    <div id="burbujas"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

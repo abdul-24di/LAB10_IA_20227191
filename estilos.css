@@ -1,0 +1,35 @@
+:root { --agua: hsl(195, 53%, 79%); }   /* azul claro inicial; JS lo va cambiando a verde */
+
+body { font-family: system-ui, sans-serif; margin: 0; padding: 24px; background: #f4f6f8; color: #123; }
+h1 { font-size: 20px; margin: 0 0 4px; }
+p.ayuda { margin: 0 0 16px; font-size: 14px; color: #456; }
+
+/* ---------- Pregunta 1: tablero ---------- */
+#pecera { position: relative; width: 480px; height: 480px; max-width: 100%;
+          overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.2); }
+#tablero { display: grid; gap: 2px; background: #fff; width: 100%; height: 100%; }
+.celda { background: var(--agua); }
+
+/* ---------- Pregunta 2: peces, botones y contadores dentro de la pecera ---------- */
+.zona { position: absolute; top: 0; bottom: 0; width: 50%; box-sizing: border-box;
+        display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+        gap: 8px; padding-bottom: 18px; transition: background .15s; }
+#zona-nemo { left: 0; }
+#zona-dory { right: 0; }
+.zona.sobre { background: rgba(255, 255, 255, .35); }   /* resalta la zona al arrastrar encima */
+.zona img { width: 150px; height: 130px; object-fit: contain; pointer-events: none; }
+.zona .nombre { font-weight: 700; }
+.zona .contador { font-size: 34px; font-weight: 800; line-height: 1; text-shadow: 0 1px 0 #fff; }
+.zona button { padding: 8px 14px; border: 0; border-radius: 8px; color: #fff; font-size: 14px;
+               font-weight: 600; cursor: pointer; }
+#zona-nemo button { background: #e8641c; }
+#zona-dory button { background: #2b6cc4; }
+
+/* ---------- Pregunta 3: burbujas ---------- */
+#burbujas { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.burbuja { position: absolute; top: -50px; width: 44px; height: 44px; border-radius: 50%;
+           pointer-events: auto; cursor: grab; border: 2px solid rgba(255,255,255,.8);
+           animation: caer 14s linear forwards; }
+.burbuja.nemo { background: radial-gradient(circle at 30% 30%, #ffd2ad, #ff8a3d 70%); }
+.burbuja.dory { background: radial-gradient(circle at 30% 30%, #c9e0ff, #3d86ff 70%); }
+@keyframes caer { to { top: 100%; } }
